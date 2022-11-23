@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>keyBord and form Events</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1>Hello,<span id="user-name">priya</span></h1>
+
+    <form id="user-form">
+        <input id="name-input" type="text" placeholder="enter your name" name="name">
+        <textarea name="email" id="email-input"></textarea>
+        <input type="submit">
+
+<!-- script====== -->
+        <script>
+const nameinput = document.getElementById("name-input")
+const emailinput = document.getElementById("name-email")
+
+
+const whatFocus = document.getElementById("what-focused");
+const userName = document.getElementById("user-name");
+const userForm = document.getElementById("user-form");
+
+nameinput.addEventListener("blur", (event)=>{
+    if(event.target.value === ""){
+        nameinput.style.border = "1px solid red";
+
+    }
+})
+
+emailInput.addEventListener("blur",(event)=>{
+    if (event.target.value === ""){
+        emailinput.style.border = "1px solid red";
+    }
+})
+
+nameInput.addEventListener("change",(event)=>{
+    const inputval = event.target.value;
+    userName.innerText = inputval
+})
+
+
+const users = [
+    {
+        name: "priya singh",
+        email: "ps597934@gmail.com"
+    }
+]
+
+userForm.addEventListener("submit", (event) =>{
+
+    event.preventDefault();
+    const name = event.target.title.value;
+    const email = event.target.content.value;
+
+    users.push({name, email});
+    console.log(users)
+
+
+})
+
+        </script>
+
+    </form>
+</body>
+</html>
